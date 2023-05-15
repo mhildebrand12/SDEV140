@@ -62,7 +62,7 @@ class GeoDialectTestPage:
         self.test_value = 0
 
         # Dictionary to store button values
-        self.button_values = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
+        self.button_values = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5}
 
         # Main title label
         self.title = tk.Label(self.topLevel, text="GeoDialect", font=("Helvetica", 36))
@@ -73,28 +73,28 @@ class GeoDialectTestPage:
         self.label.pack(padx=50, pady=50) # adds some padding to the label
 
         # Northeast button
-        self.northeastButton = tk.Button(self.topLevel, text=self.northeast_texts[0], font=("Comic Sans", 12), command=lambda: self.button_clicked(1)) 
+        self.northeastButton = tk.Button(self.topLevel, text=self.northeast_texts[0], font=("Comic Sans", 12), command=lambda: [(self.button_clicked(1)), (self.change_northeast_text)]) 
         self.northeastButton.pack(side="right", padx=50, pady=0)
         self.test_value = self.test_value + 1
 
 
         # West Coast button
-        self.westcoastButton = tk.Button(self.topLevel, text=self.westcoast_texts[0], font=("Comic Sans", 12), command=lambda: self.button_clicked(2)) 
+        self.westcoastButton = tk.Button(self.topLevel, text=self.westcoast_texts[0], font=("Comic Sans", 12), command=lambda: [(self.button_clicked(2)), (self.change_westcoast_text)]) 
         self.westcoastButton.pack(side="right", padx=10, pady=45)
         self.test_value = self.test_value + 2
 
         # Rocky States button
-        self.rockystatesButton = tk.Button(self.topLevel, text=self.rockystates_texts[0], font=("Comic Sans", 12), command=lambda: self.button_clicked(3)) 
+        self.rockystatesButton = tk.Button(self.topLevel, text=self.rockystates_texts[0], font=("Comic Sans", 12), command=lambda: [(self.button_clicked(3)), (self.change_rockystates_text)]) 
         self.rockystatesButton.pack(side="right", padx=10, pady=45)
         self.test_value = self.test_value + 3
 
         # Midwest button
-        self.midwestButton = tk.Button(self.topLevel, text=self.midwest_texts[0], font=("Comic Sans", 12), command=lambda: self.button_clicked(4)) 
+        self.midwestButton = tk.Button(self.topLevel, text=self.midwest_texts[0], font=("Comic Sans", 12), command=lambda: [(self.button_clicked(4)), (self.change_midwest_text)]) 
         self.midwestButton.pack(side="right", padx=30, pady=90)
         self.test_value = self.test_value + 4
 
         # South button
-        self.southButton = tk.Button(self.topLevel, text=self.south_texts[0], font=("Comic Sans", 12), command=lambda: self.button_clicked(5)) 
+        self.southButton = tk.Button(self.topLevel, text=self.south_texts[0], font=("Comic Sans", 12), command=lambda: [(self.button_clicked(5)), (self.change_south_text)]) 
         self.southButton.pack(side="right", padx=30, pady=90)
         self.test_value = self.test_value + 5
 
@@ -108,6 +108,7 @@ class GeoDialectTestPage:
             self.current_text_index += 1
         new_text = self.texts[self.current_text_index]
         self.label.config(text=new_text)
+
     # This method returns the values of the buttons
     def get_current_button_text(self):
         if self.current_text_index % 5 == 0:
